@@ -1,5 +1,6 @@
 package com.niuyi.test;
 
+import java.util.Arrays;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -33,7 +34,6 @@ public class TuiJianActivity extends Activity  {
 	
 	private final String[] imageDescription = {"冲浪的人","绿地生活","爱在太平洋","维多利亚花园"};
 	private Handler handler;
-	private int index = 0;
 	private Timer timer = new Timer();
 	private ImageTask task;
 	private TextView imageDescriptionTextView;
@@ -45,6 +45,8 @@ public class TuiJianActivity extends Activity  {
 	private Animation lOutAnim;
 	private Animation rInAnim;
 	private Animation rOutAnim;
+
+	private TestView testView;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -77,7 +79,7 @@ public class TuiJianActivity extends Activity  {
 			
 			view.setOnTouchListener(gestureListener);
 			view.setLongClickable(true);
-			view.setTag(imageDescription[i]);
+			view.setTag(new ImageDescriptionHolder(imageDescription[i], i));
 			viewFlipper.addView(view, new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT)); 
 		}
 		
@@ -87,6 +89,8 @@ public class TuiJianActivity extends Activity  {
         rOutAnim = AnimationUtils.loadAnimation(TuiJianActivity.this, R.anim.push_right_out);
 		
 		imageDescriptionTextView = (TextView)this.findViewById(R.id.textView2);
+		testView = (TestView)this.findViewById(R.id.testView1);
+		testView.setTotalAndIndex(imageDescription.length, 0);
 		
 		handler = new Handler(){
 			public void handleMessage(Message message){
@@ -119,19 +123,20 @@ public class TuiJianActivity extends Activity  {
 		viewFlipper.setInAnimation(lInAnim);  
         viewFlipper.setOutAnimation(lOutAnim); 
 		viewFlipper.showNext();
-		changeDescription();
+		changeDisplay();
 	}
 	
 	private void flipLeft() {
 		viewFlipper.setInAnimation(rInAnim);  
 		viewFlipper.setOutAnimation(rOutAnim);  
 		viewFlipper.showPrevious();
-		changeDescription();
+		changeDisplay();
 	}
 
-	private void changeDescription() {
-		String description = (String)viewFlipper.getCurrentView().getTag();
-		imageDescriptionTextView.setText(description);
+	private void changeDisplay() {
+		ImageDescriptionHolder holder = (ImageDescriptionHolder)viewFlipper.getCurrentView().getTag();
+		imageDescriptionTextView.setText(holder.description);
+		testView.setTotalAndIndex(imageDescription.length, holder.index);
 	}
 
 	class ImageTask extends TimerTask {
@@ -155,7 +160,17 @@ public class TuiJianActivity extends Activity  {
 			setTask();
 	        return true;  
 		}
-		
 		 
     }
+	
+	class ImageDescriptionHolder{
+		public final String description;
+		public final int index;
+
+		public ImageDescriptionHolder(String description, int index){
+			this.description = description;
+			this.index = index;
+			
+		}
+	}
 }
