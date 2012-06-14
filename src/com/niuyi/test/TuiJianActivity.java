@@ -50,8 +50,18 @@ public class TuiJianActivity extends Activity  {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.tuijian);
+		setUpFlip();
+		setUpGridView();
+	}
 
+	private void setUpGridView() {
+		GridView gridView = (GridView)this.findViewById(R.id.gridview1);
+		gridView.setAdapter(new ImageAdapter(this));
+	}
+
+	private void setUpFlip() {
 		viewFlipper = (ViewFlipper)this.findViewById(R.id.viewflipper);
+		
 		gestureDetector = new GestureDetector(new MyGestureDetector());
 		gestureListener = new View.OnTouchListener() {
             public boolean onTouch(View v, MotionEvent event) {
@@ -64,8 +74,10 @@ public class TuiJianActivity extends Activity  {
 			view.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
 			view.setScaleType(ImageView.ScaleType.FIT_START);
 			view.setImageResource(images[i]);
+			
 			view.setOnTouchListener(gestureListener);
 			view.setLongClickable(true);
+			view.setTag(imageDescription[i]);
 			viewFlipper.addView(view, new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT)); 
 		}
 		
@@ -78,14 +90,9 @@ public class TuiJianActivity extends Activity  {
 		
 		handler = new Handler(){
 			public void handleMessage(Message message){
-				int imageIndex = getImageIndex();
-				imageDescriptionTextView.setText(imageDescription[imageIndex]);
 				flipRight();
 			}
 		};
-		
-		GridView gridView = (GridView)this.findViewById(R.id.gridview1);
-		gridView.setAdapter(new ImageAdapter(this));
 	}
 	
 	@Override
@@ -108,20 +115,23 @@ public class TuiJianActivity extends Activity  {
 			task.cancel();
 	}
 	
-	private int getImageIndex() {
-		return index ++ % 4;
-	}
-	
 	private void flipRight() {
 		viewFlipper.setInAnimation(lInAnim);  
         viewFlipper.setOutAnimation(lOutAnim); 
 		viewFlipper.showNext();
+		changeDescription();
 	}
 	
 	private void flipLeft() {
 		viewFlipper.setInAnimation(rInAnim);  
 		viewFlipper.setOutAnimation(rOutAnim);  
 		viewFlipper.showPrevious();
+		changeDescription();
+	}
+
+	private void changeDescription() {
+		String description = (String)viewFlipper.getCurrentView().getTag();
+		imageDescriptionTextView.setText(description);
 	}
 
 	class ImageTask extends TimerTask {
@@ -137,9 +147,9 @@ public class TuiJianActivity extends Activity  {
 		@Override
 		public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
 			Log.d("fling", "Fling");
-			if (e2.getX() - e1.getX() > 120) {            // 从左向右滑动（左进右出）  
+			if (e2.getX() - e1.getX() > 80) {            // 从左向右滑动（左进右出）  
 	            flipLeft();  
-	        } else if (e2.getX() - e1.getX() < -120) {        // 从右向左滑动（右进左出）  
+	        } else if (e2.getX() - e1.getX() < -80) {        // 从右向左滑动（右进左出）  
 	            flipRight();  
 	        }  
 			setTask();
