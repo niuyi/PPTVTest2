@@ -16,7 +16,7 @@ public class MovieActivity extends Activity {
 		gridView.setAdapter(new ImageAdapter(this));
 		
 		Button button = (Button)findViewById(R.id.button1);
-		button.setBackgroundDrawable(this.getResources().getDrawable(R.drawable.corners_bg));
+		button.setBackgroundDrawable(this.getResources().getDrawable(R.drawable.corners_button));
 	}
 
 }
