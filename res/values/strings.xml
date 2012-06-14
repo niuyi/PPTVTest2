@@ -9,5 +9,7 @@
     <string name="search">搜索</string>
     <string name="personal">个人中心</string>
     <string name="movie">电影</string>
+    <string name="排序">Sort</string>
+    <string name="Sort">排序</string>
 
 </resources>
