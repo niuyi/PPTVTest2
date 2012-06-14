@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, PPTVActivity!</string>
+    <string name="app_name">PPTVTest</string>
+    <string name="tuijian">推荐</string>
+    <string name="pindao">频道</string>
+    <string name="zhibo">直播</string>
+    <string name="search">搜索</string>
+    <string name="personal">个人中心</string>
+
+</resources>
