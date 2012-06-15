@@ -55,7 +55,6 @@
             android:background="@drawable/corners_input"
             android:drawableEnd="@drawable/search_end"
             android:drawableStart="@drawable/search_start"
-            android:textColor="#FFFFFF"
             android:singleLine="true" />
 
         <Button
@@ -97,12 +96,25 @@
         android:background="#303030"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="match_parent"
+    <FrameLayout
+        android:layout_width="match_parent" 
         android:layout_height="0dip"
-        android:layout_weight="1"
-        android:background="#808080"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:layout_weight="1">
+        <!-- Here is the list. Since we are using a ListActivity, we
+             have to call it "@android:id/list" so ListActivity will
+             find it -->
+        <ListView android:id="@+id/search_result_list"
+            android:layout_width="match_parent" 
+            android:layout_height="match_parent"
+            android:background="#808080"
+            android:drawSelectorOnTop="false"/>
+        
+        <!-- Here is the view to show if the list is emtpy -->
+        <View android:id="@+id/empty"
+            android:layout_width="match_parent" 
+            android:layout_height="match_parent"
+            android:background="#808080"/>
+            
+    </FrameLayout>
 
 </LinearLayout>
