@@ -49,24 +49,25 @@
         <AutoCompleteTextView
             android:id="@+id/autoCompleteTextView1"
             android:layout_width="0dip"
-            android:layout_height="45dip"
+            android:layout_height="28dip"
             android:layout_margin="5dip"
             android:layout_weight="1"
             android:background="@drawable/corners_input"
             android:drawableEnd="@drawable/search_end"
             android:drawableStart="@drawable/search_start"
-            android:ems="10"
+            android:textColor="#FFFFFF"
             android:singleLine="true" />
 
         <Button
             android:id="@+id/search_button"
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_height="28dp"
             android:layout_gravity="center"
             android:layout_margin="5dip"
             android:background="@drawable/corners_button"
             android:padding="5dip"
+            android:textColor="#FFFFFF"
             android:text="@string/search"
             android:textSize="12sp" />
     </LinearLayout>
@@ -76,6 +77,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="热门搜索"
+        android:paddingLeft="5dip"
         android:background="#303030"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -91,6 +93,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="历史搜索"
+        android:paddingLeft="5dip"
         android:background="#303030"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
