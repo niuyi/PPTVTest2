@@ -59,8 +59,6 @@ public class PinDaoActivity extends Activity {
 
             return convertView;
         }
-
-        
     }
 	
 	@Override

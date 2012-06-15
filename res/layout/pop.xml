@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" 
+        android:gravity="center"
+        android:background="#b0000000">
+
+        <Button
+            android:id="@+id/pop_button1"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/corners_button"
+            android:padding="5dip"
+            android:text="@string/byUpdate"
+            android:layout_margin="5dip"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/pop_button2"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dip"
+            android:text="@string/byHot"
+            android:textColor="#FFFFFF"
+            android:layout_margin="5dip"
+            android:background="@drawable/corners_button"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/pop_button3"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/corners_button"
+            android:padding="5dip"
+            android:layout_margin="5dip"
+            android:text="@string/byRate"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp" />
+
+    </LinearLayout>
