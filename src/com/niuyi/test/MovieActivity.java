@@ -30,8 +30,8 @@ public class MovieActivity extends Activity {
 			public void onClick(View v) {
 				if(popupWindow == null){
 					View popup = MovieActivity.this.getLayoutInflater().inflate(R.layout.pop, null, true);
-					popupWindow = new PopupWindow(popup, 100, 170, true);
-					
+					popupWindow = new PopupWindow(popup, 100, 200, true);
+					popupWindow.setOutsideTouchable(true);  
 					popup.setOnTouchListener(new OnTouchListener(){
 
 						@Override
