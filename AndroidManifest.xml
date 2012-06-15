@@ -25,6 +25,7 @@
         <activity android:name="SearchActivity"></activity>
         <activity android:name="PersonalActivity"></activity>
         <activity android:name="MovieActivity" android:theme="@android:style/Theme.NoTitleBar"></activity>
+        <activity android:name="SearchActivity"></activity>
     </application>
 
 </manifest>

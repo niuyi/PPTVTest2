@@ -13,5 +13,5 @@
     <string name="byUpdate">按更新</string>
     <string name="byHot">按热门</string>
     <string name="byRate">按评分</string>
-
+    <string name="clear">清空历史</string>
 </resources>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#808080">
+
+       <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/search"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:paddingTop="5dip"
+        android:paddingBottom="5dip"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+       <Button
+           android:id="@+id/button1"
+           style="?android:attr/buttonStyleSmall"
+           android:layout_width="wrap_content"
+           android:layout_height="30dip"
+           android:layout_alignParentRight="true"
+           android:layout_centerVertical="true"
+           android:layout_marginRight="10dp"
+           android:paddingLeft="10dip"
+           android:paddingRight="10dip"
+           android:text="@string/clear"
+           android:background="@drawable/corners_button"
+           android:textColor="#FFFFFF"
+           android:textSize="12sp" />
+
+    </RelativeLayout>
+    
+    <View android:layout_width="match_parent" android:layout_height="3dip" android:background="#000000" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#A9A9A9" >
+
+        <AutoCompleteTextView
+            android:id="@+id/autoCompleteTextView1"
+            android:layout_width="0dip"
+            android:layout_height="45dip"
+            android:layout_margin="5dip"
+            android:layout_weight="1"
+            android:background="@drawable/corners_input"
+            android:drawableStart="@drawable/search_start"
+            android:drawableEnd="@drawable/search_end"
+            android:ems="10"
+            android:singleLine="true" />
+        <Button
+            android:id="@+id/search_button"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_margin="5dip"
+            android:background="@drawable/corners_button"
+            android:padding="5dip"
+            android:layout_gravity="center"
+            android:text="@string/search"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+</LinearLayout>
