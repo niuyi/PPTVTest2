@@ -1,12 +1,7 @@
 package com.niuyi.test;
 
-import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -15,11 +10,8 @@ import java.util.List;
 
 import android.app.Activity;
 import android.content.Context;
-import android.database.DataSetObserver;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.text.Editable;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -27,11 +19,12 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
 public class SearchActivity extends Activity {
+
+	private static final String FILE_NAME = "search_history.txt";
 
 	static final String[] COUNTRIES = new String[] { "Afghanistan", "Albania",
 			"Algeria", "American Samoa", "Andorra", "Angola", "Anguilla",
@@ -100,6 +93,16 @@ public class SearchActivity extends Activity {
 		super.onCreate(savedInstanceState);
 
 		setupSearchTextView();
+		Button clearSearchButton = (Button)findViewById(R.id.clear_search_button);
+		clearSearchButton.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				searchResultListAdapter.clear();
+				SearchActivity.this.deleteFile(FILE_NAME);
+			}
+			
+		});
 		setupSearchButton();
 		setupSearchResultList();
 	}
@@ -119,7 +122,7 @@ public class SearchActivity extends Activity {
 				BufferedWriter bufferedWriter = null;
 				try {
 					bufferedWriter = new BufferedWriter(new OutputStreamWriter(
-							openFileOutput("search_history.txt",
+							openFileOutput(FILE_NAME,
 									Context.MODE_APPEND), "UTF-8"));
 					bufferedWriter.write(text);
 					bufferedWriter.newLine();
@@ -150,7 +153,7 @@ public class SearchActivity extends Activity {
 		try {
 			bufferedReader = new BufferedReader(
 												new InputStreamReader(
-														openFileInput("search_history.txt")));
+														openFileInput(FILE_NAME)));
 			String line;
 			while((line = bufferedReader.readLine()) != null){
 				searchResultListAdapter.addResult(line);
@@ -182,6 +185,11 @@ public class SearchActivity extends Activity {
 
 		public SearchResultListAdapter(Context context) {
 			this.context = context;
+		}
+
+		public void clear() {
+			this.results.clear();
+			this.notifyDataSetChanged();
 		}
 
 		@Override
