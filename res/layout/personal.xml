@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#808080">
+
+       <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="登陆"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:paddingTop="5dip"
+        android:paddingBottom="5dip"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/corners_bg2"
+        android:layout_margin="20dip" >
+
+        <TextView
+            android:id="@+id/usernameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dip"
+            android:text="用户名："
+            android:layout_alignParentLeft="true"
+            android:layout_alignBaseline="@+id/usernameEditText"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <EditText
+            android:id="@+id/usernameEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="30dip"
+            android:layout_marginTop="5dip"
+            android:layout_marginBottom="5dip"
+            android:layout_marginRight="10dip"
+            android:background="#FFFFFF"
+            android:ems="10"
+            android:singleLine="true"
+            android:layout_toRightOf="@+id/usernameTextView">
+
+            <requestFocus />
+        </EditText>
+        
+        <View android:id="@+id/divider" android:background="#505050"
+                    android:layout_width="fill_parent" android:layout_height="1.0dip"
+                    android:layout_below="@+id/usernameEditText"/>
+        
+        <TextView
+            android:id="@+id/pwdTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/divider"
+            android:paddingLeft="10dip"
+            android:text="密码："
+            android:layout_alignBaseline="@+id/pwdEditText"
+            android:layout_alignParentLeft="true"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+        <EditText
+            android:id="@+id/pwdEditText"
+            android:layout_width="0dip"
+            android:layout_height="30dip"
+            android:background="#FFFFFF"
+            android:singleLine="true"
+            android:layout_marginTop="5dip"
+            android:layout_marginBottom="5dip"
+            android:layout_marginRight="10dip"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/divider"
+            android:layout_alignLeft="@+id/usernameEditText">
+
+        </EditText>
+        
+        <View android:id="@+id/divider2" android:background="#505050"
+            		android:layout_below="@+id/pwdEditText"
+            		android:layout_centerHorizontal="true"
+                    android:layout_width="2dip" android:layout_height="1.0dip"/>
+
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/corners_bg2"
+        android:layout_margin="20dip" >
+
+        <TextView
+            android:id="@+id/saveTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="35dip"
+            android:gravity="center"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:paddingLeft="10dip"
+            android:text="保存个人信息："
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+        
+         <CheckBox
+            android:id="@+id/saveCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="3dip"
+            android:paddingBottom="3dip"
+            android:layout_alignBaseline="@+id/saveTextView"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="10dip"
+            android:layout_marginRight="30dp" />
+        
+        <View android:id="@+id/divider3" android:background="#505050"
+                    android:layout_width="fill_parent" android:layout_height="1.0dip"
+                    android:layout_below="@+id/saveTextView"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true" />
+        
+        <TextView
+            android:id="@+id/autoTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="35dip"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/saveTextView"
+            android:gravity="center"
+            android:paddingLeft="10dip"
+            android:text="下次自动登陆："
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <CheckBox
+            android:id="@+id/autoCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:paddingTop="3dip"
+            android:paddingBottom="3dip"
+            android:layout_alignBaseline="@+id/autoTextView"
+            android:layout_alignLeft="@+id/saveCheckBox"
+            android:layout_marginBottom="10dip"
+            android:layout_marginRight="30dp"/>
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="match_parent"
+        android:layout_height="35dip"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="20dip"
+        android:layout_marginRight="20dip"
+        android:background="@drawable/corners_button"
+        android:text="登陆"
+        android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="match_parent"
+        android:layout_height="35dip"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/corners_button"
+        android:layout_marginTop="10dip"
+        android:layout_marginLeft="20dip"
+        android:layout_marginRight="20dip"
+        android:textColor="#FFFFFF"
+        android:text="现在注册" />
+
+</LinearLayout>

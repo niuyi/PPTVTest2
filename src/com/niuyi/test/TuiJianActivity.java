@@ -24,11 +24,11 @@ public class TuiJianActivity extends Activity {
 
 	private ViewFlipper viewFlipper = null;
 
-	private final Integer[] images = { R.drawable.image1, R.drawable.image2,
+	private final Integer[] images = { 
+			R.drawable.image1, R.drawable.image2,
 			R.drawable.image3, R.drawable.image4 };
 
-	private final String[] imageDescription = { "冲浪的人", "绿地生活", "爱在太平洋",
-			"维多利亚花园" };
+	private final String[] imageDescription = { "冲浪的人", "绿地生活", "爱在太平洋", "维多利亚花园" };
 	private Handler handler;
 	private Timer timer = new Timer();
 	private ImageTask task;

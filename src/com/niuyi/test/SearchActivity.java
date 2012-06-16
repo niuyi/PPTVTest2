@@ -93,18 +93,20 @@ public class SearchActivity extends Activity {
 		super.onCreate(savedInstanceState);
 
 		setupSearchTextView();
+		setupClearSearchButton();
+		setupSearchButton();
+		setupSearchResultList();
+	}
+
+	private void setupClearSearchButton() {
 		Button clearSearchButton = (Button)findViewById(R.id.clear_search_button);
 		clearSearchButton.setOnClickListener(new OnClickListener(){
-
 			@Override
 			public void onClick(View v) {
 				searchResultListAdapter.clear();
 				SearchActivity.this.deleteFile(FILE_NAME);
 			}
-			
 		});
-		setupSearchButton();
-		setupSearchResultList();
 	}
 
 	private void setupSearchButton() {

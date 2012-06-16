@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,9 +45,11 @@ public class PinDaoActivity extends Activity {
             if (convertView == null) {
                 convertView = flater.inflate(R.layout.list_item, null);
                 holder = new ViewHolder();
+                
                 holder.text = (TextView) convertView.findViewById(R.id.text);
                 holder.icon = (ImageView) convertView.findViewById(R.id.icon);
                 holder.activity = MovieActivity.class;
+                
                 convertView.setTag(holder);
             } else {
                 holder = (ViewHolder) convertView.getTag();
