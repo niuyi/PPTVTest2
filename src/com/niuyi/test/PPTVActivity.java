@@ -4,7 +4,11 @@ import android.app.TabActivity;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.TabHost;
+import android.widget.Toast;
 
 public class PPTVActivity extends TabActivity {
 	/** Called when the activity is first created. */
@@ -40,4 +44,34 @@ public class PPTVActivity extends TabActivity {
 		tabHost.setCurrentTab(0);
 
 	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu){
+		MenuInflater menuInflater = this.getMenuInflater();
+		menuInflater.inflate(R.menu.title_icon, menu);
+		return true;
+	}
+	
+	@Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.happy:
+                Toast.makeText(this, "Happy!", Toast.LENGTH_SHORT).show();
+                return true;
+
+            case R.id.neutral:
+                Toast.makeText(this, "Neutral", Toast.LENGTH_SHORT).show();
+                return true;
+
+            case R.id.sad:
+            	Toast.makeText(this, "Sad", Toast.LENGTH_SHORT).show();
+                return true;
+                
+            case R.id.simple:
+            	Toast.makeText(this, "Simple", Toast.LENGTH_SHORT).show();
+                return true;
+            
+        }
+        return false;
+    }
 }
